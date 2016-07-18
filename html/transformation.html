@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D翻转</title>
+	<style type="text/css">
+		/*定义闪烁关键帧*/
+		@keyframes warning{
+			0%{
+				text-shadow: 0 0 4px #ff0;
+			}
+			50%{
+				text-shadow: 0 0 20px #f00;
+			}
+			100%{
+				text-shadow: 0 0 4px #000;
+			}
+		}
+		/*定义晃动关键帧*/
+		@keyframes swing{
+			0%{
+				transform: rotate(2deg);
+			}
+			20%{
+				transform: rotate(-3deg);
+			}
+			50%{
+				transform: rotate(5deg);
+			}
+			60%{
+				transform: rotate(8deg);
+			}
+			80%{
+				transform: rotate(-3deg);
+			}
+			100%{
+				transform: rotate(3deg);
+			}
+		}
+		.Qcontainer{
+			height: 220px;
+			width: 300px;
+			position: relative;
+			display: inline-block;
+			-webkit-perspective: 800;
+			animation: swing 0.2s 5 0.5s ease-in-out;
+		}
+		.film{
+			height: 100%;
+			width: 100%;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transition: 1s;
+			display: inline-block;
+		}
+		.Qcontainer:hover .film{
+			-webkit-transform: rotateY(180deg);
+		}
+		.face{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			overflow: hidden;
+		}
+		.back{
+			width: 100%;
+			height: 100%;
+			-webkit-transform: rotateY(180deg);
+			background: #ccc;
+			box-sizing: border-box;
+			padding: 15px;
+			font-size: 42px;
+		}
+		.front{
+			z-index: 1;
+		}
+		.Qcontainer:hover .front{
+			z-index: 0;
+		}
+		.light{
+			text-align: center;
+			animation: warning 1.5s infinite ease-in-out;
+		}
+	</style>
+</head>
+<body>
+<section class="Qcontainer" id="Q">
+	<div class="film">
+		<div class="face front">
+			<img src="../img/cut_1.png" />
+		</div>
+		<div class="face back">
+			<p class="light">Hot!</p>
+		</div>
+	</div>
+</section>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById('Q').onclick = function(){
+			var a = 1;
+			var b = 2;
+			var i = a + b;
+			alert(i);
+		};
+	}
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>变形</title>
+	<style type="text/css">
+		div{
+			height: 100px;
+			width: 100px;
+			display: inline-block;
+			margin-left: 50px;
+		}
+		.line{
+			background: linear-gradient(135deg, #f00 40%, #ff0 0, #ff0 50%, #ff0 0, transparent 0);
+		}
+		.scale{
+			background-color: #f00;
+		}
+		.scale:hover{
+			transform: scale(0.5);
+		}
+		.rotate{
+			transform: rotate(45deg);
+			background-color: #f00;
+			border: 20px solid #ff0;
+			border-radius: 50%;
+			border-top: 20px solid transparent;
+			border-right:20px solid transparent;
+		}
+		.skew{
+			background-color: #f00;
+			transform: skew(-40deg,-14deg);
+		}
+	</style>
+</head>
+<body>
+	<!-- 测试在IE中显示 -->
+	<!--[if IE]><p>You are using Internet Explorer.</p><![endif]-->
+	<![if !IE]><p>You are not using Internet Explorer.</p><![endif]>
+
+	<div class="line">渐变</div>
+	<div class="scale">缩放</div>
+	<div class="rotate">旋转</div>
+	<div class="skew">变形</div>
+</body>
+</html>
